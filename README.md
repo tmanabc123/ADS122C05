@@ -1,6 +1,6 @@
 # ADS122C05
-Micropython Library For the Texas Instruments ADS122C04 24bit ADC.
-
+Micropython Library For the Texas Instruments ADS122C04 24bit ADC.\
+(most main functions complete)
 Tested on the ESP32 but should work for esp8266 and other versions of mucropytion/ circuit python with
 slight modifications.
 
@@ -33,4 +33,5 @@ To create an adc object, you need to pass four things to the ADC class that was 
 adc = ADC(i2c_bus, 69, 16, 4)
 ```
 
-Now that
+Now that you have initializedd everything, you start using the adc
+
