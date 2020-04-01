@@ -90,10 +90,20 @@ continuous conversion mode)
 adc.start_conversion()
 
 ```
-* reading the direct register values from the latest adc conversion*
+**reading the direct register values from the latest adc conversion**
 ```Python
  # Will return a value between 0 and 16777216
  adc.read()
 ```
 
-* Interpreting results*
+**Interpreting results:**
+The adc is really only 23 bits even though it advertises as being 24 bit. This is because the
+24th bit is a sign bit.
+If the adc reading is greater than 2^23 (8388608), the voltage is negative.
+for anything lower thatn 2^23, the voltage is positive.
+In either case, calculating the actual voltage from the register value is very straightfoward
+
+* Converting the adc reading to a voltage
+```Python
+
+```
