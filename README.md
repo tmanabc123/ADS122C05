@@ -1,7 +1,7 @@
 # ADS122C05
 Micropython Library For the Texas Instruments ADS122C04 24bit ADC.\
-(most main functions complete)
-Tested on the ESP32 but should work for esp8266 and other versions of mucropytion/ circuit python with
+(most main functions complete)\
+Tested and working on the ESP32 but should work for esp8266 and other versions of mucropytion/ circuit python with
 slight modifications.
 
 ## Initial Setup ##
