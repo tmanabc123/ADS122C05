@@ -89,3 +89,8 @@ continuous conversion mode)
 adc.start_conversion()
 
 ```
+* to read the direct values from the adc:
+
+<div class="text-red mb-2">
+  .text-red on white
+</div>
