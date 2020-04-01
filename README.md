@@ -4,8 +4,8 @@ Micropython Library For the Texas Instruments ADS122C04 24bit ADC.
 Tested on the ESP32 but should work for esp8266 and other versions of mucropytion/ circuit python with
 slight modifications.
 
-## General Usage ##
-**Initial setup**
+## Initial Setup ##
+**Import needed libraries**
 ```Python
 from machine import Pin, I2C
 from ADS122C04_ESP import ADC
@@ -21,8 +21,8 @@ After setting up the i2c bus, assuming you have everything connected correctly, 
 i2c_bus.scan()
 ```
 
-**Now to create the adc object**
-to create an adc object, you need to pass four things to the ADC class that was previously imported:\
+**Now to create the adc object**\
+To create an adc object, you need to pass four things to the ADC class that was previously imported:\
 1: an I2C object\
 2: the device address\
 3: the pin numer that you connected to the data ready pin on the ADC (can be any viable input pin w/ internal pullup)\
@@ -32,3 +32,5 @@ to create an adc object, you need to pass four things to the ADC class that was 
 # Assuming an address of 69, drdy of 16, and reset of 4:
 adc = ADC(i2c_bus, 69, 16, 4)
 ```
+
+Now that
