@@ -33,5 +33,26 @@ To create an adc object, you need to pass four things to the ADC class that was 
 adc = ADC(i2c_bus, 69, 16, 4)
 ```
 
-Now that you have initializedd everything, you start using the adc
+## Currently Working Functions:
+**SET_SINGLE(channel)**\
+**SET_DIFFERENTIAL(AINp,AINn)**\
+**SYSTEM_MONITOR(state)**\
+**PGA(gain)**\
+**PGA_ENABLED(state)**\
+**DATA_RATE(rate)**\
+**OPERATING_MODE(mode)**\
+**CONVERSION_MODE(mode)**\
+**VOLTAGE_REF(ref)**\
+**TEMP_MODE(state)**\
+**check_conversion(state)**\
+**read()**\
+**start_conversion()**\
+**reset()**\
+**powerdown()**\
+
+## Functions in progress:
+**read_temp()**\
+**enable_CRC16()**\
+**EFFECTIVE_RES()**\
+**NOISE_FREE_RES()**\
 
