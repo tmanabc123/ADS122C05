@@ -58,6 +58,7 @@ adc = ADC(i2c_bus, 69, 16, 4)
 
 ## Examples
 **Setting up adc to read positive voltage from channel 1 and negative from ground**
+**DO NOT PUT MORE THAN 2.048V on the input!!!**
 ```Python
 from machine import Pin, I2C
 from ADS122C04_ESP import ADC
@@ -89,8 +90,10 @@ continuous conversion mode)
 adc.start_conversion()
 
 ```
-* to read the direct values from the adc:
+* reading the direct register values from the latest adc conversion*
+```Python
+ # Will return a value between 0 and 16777216
+ adc.read()
+```
 
-<div class="text-red mb-2">
-  .text-red on white
-</div>
+* Interpreting results*
