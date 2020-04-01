@@ -48,11 +48,44 @@ adc = ADC(i2c_bus, 69, 16, 4)
 **read()**\
 **start_conversion()**\
 **reset()**\
-**powerdown()**\
+**powerdown()**
 
 ## Functions in progress:
 **read_temp()**\
 **enable_CRC16()**\
 **EFFECTIVE_RES()**\
-**NOISE_FREE_RES()**\
+**NOISE_FREE_RES()**
 
+## Examples
+**Setting up adc to read positive voltage from channel 1 and negative from ground**
+```Python
+from machine import Pin, I2C
+from ADS122C04_ESP import ADC
+
+# make I2C object 
+port  = I2C(scl=-Pin(5), sda=Pin(17))
+
+# After determining the address and selecting the pins as described earlier, 
+# Create ADC object
+adc = ADC(port, 69, 16, 4)
+
+# Set conversion mode to continuous
+adc.CONVERSION_MODE('continuous')
+
+# Set the voltage reference to the internal 2.048V reference
+adc.VOLTAGE_REF('internal')
+
+# Set the positive input to channel 0 and negative to ground
+adc.SET_SINGLE(0)
+
+# Set operating mode to turbo (increased accuract at cost of more power)
+adc.OPERATING_MODE('turbo')
+
+# Set data rate to 40 samples per second (slowest and most accurate)
+adc.DATA_RATE(40)
+
+# Send initial start conversion command (only needs to be sent once when in \
+continuous conversion mode)
+adc.start_conversion()
+
+```
