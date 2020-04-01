@@ -100,7 +100,7 @@ adc.start_conversion()
 The adc is really only 23 bits even though it advertises as being 24 bit. This is because the
 24th bit is a sign bit.
 If the adc reading is greater than 2^23 (8388608), the voltage is negative.
-for anything lower thatn 2^23, the voltage is positive.
+For anything lower thatn 2^23, the voltage is positive.
 In either case, calculating the actual voltage from the register value is very straightfoward
 
 * Converting the adc reading to a voltage
