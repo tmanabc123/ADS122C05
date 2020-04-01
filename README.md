@@ -105,5 +105,31 @@ In either case, calculating the actual voltage from the register value is very s
 
 * Converting the adc reading to a voltage
 ```Python
+# A function for reading the actual voltage 
+def read_voltage(n=0):
+    # Take n readings and average them
+    if n != 0:
+        sum = 0
+        i = 0
+        while i < n:
+            i = i + 1
+            a = adc.read()
+            neg_check = a >> 23
+            b = a & 0b011111111111111111111111
+            voltage = b / (2**23) * 2.048
+            sum += voltage
+        if neg_check == 1:
+            return (sum / n) * (-1)
+        else:
+            return (sum / n)
 
+    else:
+        a = adc.read()
+        neg_check = a >> 23
+        b = a & 0b011111111111111111111111
+        voltage = b / (2**23) * 2.048
+        if neg_check == 1:
+            return voltage * (-1)
+        else:
+            return voltage
 ```
