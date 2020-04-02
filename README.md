@@ -35,20 +35,93 @@ adc = ADC(i2c_bus, 69, 16, 4)
 
 ## Currently Working Functions:
 **SET_SINGLE(channel)**\
+Used for setting a single channel as a positive input with AVSS(gnd) as the negative input\
+```Python
+# Channel can be 0 - 3
+channel = 3
+adc.SET_SINGLE(channel)
+```
 **SET_DIFFERENTIAL(AINp,AINn)**\
+Used when you want to measure the voltage between two of the pins\
+```Python
+# Set the negative and positive inputs (can be anything 0 - 3)
+neg = 0
+pos = 1
+adc.SET_DIFFERENTIAL(pos, neg)
+```
 **SYSTEM_MONITOR(state)**\
+Used for testing purposes
+```Python
+# Set ADC input as [(AVDD-AVSS)/4]
+adc.SYSTEM_MONITOR(0)
+# Set ADC input as [(AVDD-AVSS)/4]
+adc.SYSTEM_MONITOR(1)
+# AINp and AINn shorted to (AVDD+AVSS)/2
+adc.SYSTEM_MONITOR(2)
+```
 **PGA(gain)**\
+Sets the gain. If nothing is entered, the current gain is returned
+```Python
+# Gain from 1-128 can be entered. When the input is in single channel mode with negative set to AVSS(agnd), or when the PGA(programmable gain amplifier) is disabled, the gain must be 1, 2, or 4.
+gain = 4
+
+# Set the gain to 4x
+adc.PGA(4)
+
+# To return the current gain:
+adc.PGA()
+```
 **PGA_ENABLED(state)**\
-**DATA_RATE(rate)**\
+Enable or Disable the PGA
+```Python
+# Can be set to True or False. If nothing is entered, the current state of the pga is returned
+pga_status = True
+adc.PGA_ENABLED(pga_status)
+
+# To return the current status:
+adc.PGA_ENABLED()
+```
 **OPERATING_MODE(mode)**\
+Sets the operating mode to normal or turbo. In normal mode, the max smaple rate is 1000 Samples per second and the modulator clock is 256-kHz. In turbo mode, the max sample rate is 2000 SPS and the modulator clock is 512-kHz. Turbo mode provides more accurate readings
+```Python
+# ADC can be 
+```
+**DATA_RATE(rate)**\
+```Python
+
+```
 **CONVERSION_MODE(mode)**\
+```Python
+
+```
 **VOLTAGE_REF(ref)**\
+```Python
+
+```
 **TEMP_MODE(state)**\
+```Python
+
+```
 **check_conversion(state)**\
+```Python
+
+```
 **read()**\
+```Python
+
+```
 **start_conversion()**\
+```Python
+
+```
 **reset()**\
+```Python
+
+```
 **powerdown()**
+```Python
+
+```
 
 ## Functions in progress:
 **read_temp()**\
@@ -103,7 +176,8 @@ If the adc reading is greater than 2^23 (8388608), the voltage is negative.
 For anything lower thatn 2^23, the voltage is positive.
 In either case, calculating the actual voltage from the register value is very straightfoward
 
-* Converting the adc reading to a voltage
+**Converting the ADC reading to a voltage**\
+Reminder: If you want to measure a negative voltage, Make sure to use a bipolar power supply (AVSS=-2.5v, AVDD=2.5v)
 ```Python
 # A function for reading the actual voltage 
 def read_voltage(n=0):
@@ -133,3 +207,4 @@ def read_voltage(n=0):
         else:
             return voltage
 ```
+**For voltages higher than the 2.048V reference, you need to use a resistor divider to drop the voltage at the ADC input.**
