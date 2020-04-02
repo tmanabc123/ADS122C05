@@ -62,7 +62,8 @@ adc.SYSTEM_MONITOR(2)
 **PGA(gain)**\
 Sets the gain. If nothing is entered, the current gain is returned
 ```Python
-# Gain from 1-128 can be entered. When the input is in single channel mode with negative set to AVSS(agnd), or when the PGA(programmable gain amplifier) is disabled, the gain must be 1, 2, or 4.
+# Gain from 1-128 can be entered. When the input is in single channel mode with negative set to
+ AVSS(agnd), or when the PGA(programmable gain amplifier) is disabled, the gain must be 1, 2, or 4.
 gain = 4
 
 # Set the gain to 4x
@@ -82,17 +83,31 @@ adc.PGA_ENABLED(pga_status)
 adc.PGA_ENABLED()
 ```
 **OPERATING_MODE(mode)**\
-Sets the operating mode to normal or turbo. In normal mode, the max smaple rate is 1000 Samples per second and the modulator clock is 256-kHz. In turbo mode, the max sample rate is 2000 SPS and the modulator clock is 512-kHz. Turbo mode provides more accurate readings
+Sets the operating mode to normal or turbo. In normal mode, the max smaple rate is 1000 Samples per second and the modulator clock is 256-kHz. In turbo mode, the max sample rate is 2000 SPS and the modulator clock is 512-kHz. Turbo mode provides more accurate readings. If nothing is entered, the current mode is returned
 ```Python
-# ADC can be 
+# ADC can be set to turbo or normal
+mode = normal
+adc.OPERATING_MODE(normal)
+
+# To return the current operating mode:
+adc.OPERATING_MODE()
 ```
 **DATA_RATE(rate)**\
+Sets the data rate. Must be 20,45,90,175,330,600, or 1000 for normal mode or 40,90,180,350,660,1200 or 2000 for turbo.
+If nothing is entered, the current data rate is returned.
+The slower the data rate, the more accurate the rading will be.
 ```Python
+# Set the data rate to 40 sps
+rate = 40
+adc.DATA_RATE(40)
 
+# To return the current data rate:
+adc.DATA_RATE()
 ```
 **CONVERSION_MODE(mode)**\
+Used to set the conversion mode to single or continuous. If nothing is entered, the current mode is returned
 ```Python
-
+adc.
 ```
 **VOLTAGE_REF(ref)**\
 ```Python
