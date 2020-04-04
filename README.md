@@ -4,9 +4,11 @@ Micropython Library For the Texas Instruments ADS122C04 24bit ADC.\
 Tested and working on the ESP32 but should work for esp8266 and other versions of mucropytion/ circuit python with
 slight modifications.
 ## Hardware Setup ##
-ADS122C04 pinout\
-![Image of pinout]
-(https://raw.githubusercontent.com/tmanabc123/ADS122C05/master/adc_pinout.png)
+ADS122C04 pinout:
+![Image of pinout](https://raw.githubusercontent.com/tmanabc123/ADS122C05/master/adc_pinout.png)
+Pin Functions:
+![Image of pinout](https://raw.githubusercontent.com/tmanabc123/ADS122C05/master/adc_pin_functions.png)
+
 
 ## Software Setup ##
 **Import needed libraries**
