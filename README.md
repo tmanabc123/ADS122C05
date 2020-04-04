@@ -6,7 +6,7 @@ slight modifications.
 ## Hardware Setup ##
 ADS122C04 pinout\
 ![Image of pinout]
-(https://github.com/tmanabc123/ADS122C05/adc_pinout.png)
+(https://raw.githubusercontent.com/tmanabc123/ADS122C05/master/adc_pinout.png)
 
 ## Software Setup ##
 **Import needed libraries**
