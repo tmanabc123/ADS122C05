@@ -5,7 +5,7 @@ Tested and working on the ESP32 but should work for esp8266 and other versions o
 slight modifications.
 ## Hardware Setup ##
 ADS122C04 pinout:
-![Image of pinout](https://raw.githubusercontent.com/tmanabc123/ADS122C05/master/adc_pinout.png)
+![Image of pinout](https://raw.githubusercontent.com/tmanabc123/ADS122C05/master/adc_pinout.png)\
 Pin Functions:
 ![Image of pinout](https://raw.githubusercontent.com/tmanabc123/ADS122C05/master/adc_pin_functions.png)
 
